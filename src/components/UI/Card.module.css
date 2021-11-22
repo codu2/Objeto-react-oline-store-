@@ -1,0 +1,8 @@
+.card {
+  width: max-content;
+  height: max-content;
+  background-color: #eee;
+  width: 250px;
+  height: 350px;
+  padding: 0.75rem;
+}

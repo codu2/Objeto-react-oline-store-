@@ -1,0 +1,29 @@
+.products-item {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: auto;
+}
+
+.category {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.name {
+  margin: 1.5rem 0 0.55rem;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}

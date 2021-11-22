@@ -1,0 +1,28 @@
+.page-intro {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem;
+}
+
+.intro-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-img img {
+  width: 90%;
+  height: auto;
+}
+
+.products-list {
+  display: flex;
+  margin: 0 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,28 @@
+.count {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.count button {
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.count input {
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+.count input::-webkit-outer-spin-button,
+.count input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
