@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './Header.module.css';
 import Button from '../UI/Button';
+import CartContext from '../../store/cart-context';
 
 const Header = props => {
+    const cartCtx = useContext(CartContext);
+
+    const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+        return curNumber + item.amount;
+    }, 0)
+    
     return (
         <div className={classes.header}>
             <h1 className={classes.logo}>objeto</h1>
@@ -14,10 +21,10 @@ const Header = props => {
                 <li>Shoes</li>
                 <li>Acc</li>
             </ul>
-            <Button>
+            <Button onClick={props.onShowCart}>
                 <span>Your Cart</span>    
                 <span className={classes.badge}>
-                    3
+                    {numberOfCartItems}
                 </span>
             </Button>
         </div>
