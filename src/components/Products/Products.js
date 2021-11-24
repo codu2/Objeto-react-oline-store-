@@ -6,6 +6,7 @@ import ProductsItem from './ProductsItem';
 
 const product_items = [
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Outer',
         name: 'Leather Jacket',
         color: 'black',
@@ -13,6 +14,7 @@ const product_items = [
         imgSrc: '../../assets/product1.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Top',
         name: 'Leather Sleeveless',
         color: 'black',
@@ -20,6 +22,7 @@ const product_items = [
         imgSrc: '../../assets/product2.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Bottom',
         name: 'Skate Pants',
         color: 'Deep blue',
@@ -27,6 +30,7 @@ const product_items = [
         imgSrc: '../../assets/product3.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Shoes',
         name: 'Leather Boots',
         color: 'Brown',
@@ -34,6 +38,7 @@ const product_items = [
         imgSrc: '../../assets/product4.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Acc',
         name: 'Beanie',
         color: 'black',
@@ -41,6 +46,7 @@ const product_items = [
         imgSrc: '../../assets/product5.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Acc',
         name: 'Sunglasses',
         color: 'Yellow',
@@ -48,6 +54,7 @@ const product_items = [
         imgSrc: '../../assets/product6.PNG'
     },
     {
+        id: Math.floor(Math.random() * 1000),
         category: 'Acc',
         name: 'Sunglasses',
         color: 'Brown',
@@ -56,12 +63,12 @@ const product_items = [
     },
 ];
 
-const Products = props => {
+const Products = () => {
     const products_List = product_items.map((item) => {
         return (
             <ProductsItem 
-                key={Math.floor(Math.random() * 1000)} 
-                id={Math.floor(Math.random() * 1000)} 
+                key={item.id} 
+                id={item.id} 
                 category={item.category}
                 name={item.name} 
                 color={item.color} 
