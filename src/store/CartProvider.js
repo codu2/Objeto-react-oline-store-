@@ -10,7 +10,7 @@ const defaultCartState = {
 //action은 'ADD'일 경우 추가하는 item, 'REMOVE'일 경우 삭제되는 item의 데이터
 //action은 이것을 사용하는 dispatch 함수에서 넘겨주는 데이터 자체
 const cartReducer = (state, action) => {
-    if(action.type === 'Add') {
+    if(action.type === 'ADD') {
         const updatedTotal = state.total + action.item.price * action.item.amount;
 
         const existingCartItemIndex = state.items.findIndex((item) => item.id === action.item.id);
@@ -57,7 +57,7 @@ const cartReducer = (state, action) => {
             }
 
             updatedItems = [...state.items];
-            updatedItems[existingItem] = updatedItem;
+            updatedItems[existingItemIndex] = updatedItem;
         }
 
         return {
