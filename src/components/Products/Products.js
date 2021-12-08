@@ -1,69 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ProductsIntro from './ProductsIntro';
 import classes from './Products.module.css';
 import ProductsItem from './ProductsItem';
 
-const product_items = [
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Outer',
-        name: 'Leather Jacket',
-        color: 'black',
-        price: 60.19,
-        imgSrc: '../../assets/product1.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Top',
-        name: 'Leather Sleeveless',
-        color: 'black',
-        price: 25.99,
-        imgSrc: '../../assets/product2.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Bottom',
-        name: 'Skate Pants',
-        color: 'Deep blue',
-        price: 30.09,
-        imgSrc: '../../assets/product3.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Shoes',
-        name: 'Leather Boots',
-        color: 'Brown',
-        price: 38.99,
-        imgSrc: '../../assets/product4.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Acc',
-        name: 'Beanie',
-        color: 'black',
-        price: 16.5,
-        imgSrc: '../../assets/product5.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Acc',
-        name: 'Sunglasses',
-        color: 'Yellow',
-        price: 18.99,
-        imgSrc: '../../assets/product6.PNG'
-    },
-    {
-        id: Math.floor(Math.random() * 1000),
-        category: 'Acc',
-        name: 'Sunglasses',
-        color: 'Brown',
-        price: 20.99,
-        imgSrc: '../../assets/product7.PNG'
-    },
-];
-
 const Products = () => {
+    const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasError, setHasError] = useState();
+    
+    useEffect(() => {
+        const fetchItems = async () => {
+            setIsLoading(true);
+            const response = await fetch('https://react-http-5552c-default-rtdb.firebaseio.com/items.json');
+            const responseData = await response.json();
+
+            if(!response.ok) {
+                throw new Error('Something went wrong!');
+            }
+
+            const loadedItems = [];
+
+            for (const key in responseData) {
+                loadedItems.push({
+                    id: key,
+                    color: responseData[key].color,
+                    imgSrc: responseData[key].imgSrc,
+                    name: responseData[key].name,
+                    price: responseData[key].price
+                })
+            }
+
+            setItems(loadedItems);
+            setIsLoading(false);
+        }
+
+        fetchItems().catch(error => {
+            setIsLoading(false);
+            setHasError(error.message);
+        });
+    }, [])
+
+    if(isLoading) {
+        return <p className={classes.loading}>Products Loading...</p>
+    }
+
+    if(hasError) {
+        return <p className={classes.error}>{hasError}</p>
+    }
+    
     const products_List = product_items.map((item) => {
         return (
             <ProductsItem 
