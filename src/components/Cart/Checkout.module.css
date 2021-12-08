@@ -1,0 +1,96 @@
+.checkout-form {
+  width: 100%;
+  max-height: 21rem;
+  overflow-y: auto;
+}
+
+.checkout-form::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eee;
+}
+
+.checkout-form::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #000;
+}
+
+.checkout-form h1 {
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+  border-top: 1px dashed #000;
+  padding: 0.75rem;
+}
+
+.checkout-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.checkout-input label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-family: inherit;
+}
+
+.checkout-input input {
+  height: 25px;
+  width: 200px;
+  padding: 0.5rem 0.2rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  outline-color: #000;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.actions button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #000;
+  font: inherit;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+}
+
+.actions button.cancel {
+  font-weight: 600;
+}
+
+.actions button.cancel:hover {
+  border: 1px solid #000;
+}
+
+.actions button.confirm {
+  background-color: #000;
+  color: #fff;
+}
+
+.actions button.confirm:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.error-message {
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.invalid .error-message {
+  color: #aa0b20;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+}
