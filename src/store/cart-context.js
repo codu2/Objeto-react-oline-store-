@@ -4,7 +4,8 @@ const CartContext = React.createContext({
     items: [],
     total: 0,
     addItem: (item) => {},
-    removeItem: (id) => {}
+    removeItem: (id) => {},
+    clearCart: () => {}
 })
 
 //디폴트 데이터를 만들어줌
